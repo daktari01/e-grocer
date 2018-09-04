@@ -2,5 +2,11 @@
 
 <%= render 'form', product: @product %>
 
+<% if @product.errors.any? %>
+    <% @product.errors.full_messages.each do |msg| %>
+        <div class="alert-danger"><%= msg %></div>
+    <% end %>
+<% end %>
+
 <%= link_to 'Show', @product %> |
 <%= link_to 'Back', products_path %>
